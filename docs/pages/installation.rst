@@ -22,16 +22,14 @@ itself, we try to keep the master branch bug-free. However, we strongly recommen
 stick with a release from the PyPi repository, unless if you're confident in your abilities 
 to fix any potential bugs on your own!
 
-Python 3
-~~~~~~~~
-Photologue works with Python 3 (3.3 or later).
-
 Dependencies
 ------------
+Photologue works with Python 3 (3.3 or later).
+
 3 apps that will be installed automatically if required.
 
 * `Django <https://www.djangoproject.com/>`_.
-* `Pillow <http://python-imaging.github.io/Pillow/>`_.
+* `Pillow <http://python-imaging.github.io/Pillow/>`_. [#pillow]_
 * `Django-sortedm2m <https://pypi.python.org/pypi/django-sortedm2m>`_.
 
 And 1 dependency that you will have to manage yourself:
@@ -42,37 +40,6 @@ And 1 dependency that you will have to manage yourself:
 .. note::
 
     Photologue should work with actively supported versions of DJango, see https://www.djangoproject.com/download/
-
-That troublesome Pillow...
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-Pillow can be tricky to install; sometimes it will install smoothly
-out of the box, sometimes you can spend hours figuring it out - installation
-issues vary from platform to platform, and from one OS release to the next, so listing
-them all here would not be realistic. Google
-is your friend, and it's worth noting that Pillow is a fork of PIL,
-so googling 'PIL installation <your platform>' can also help.
-
-#. You should not have installed both PIL and Pillow; this can cause strange bugs.
-   Please uninstall PIL before you install Pillow.
-
-#. In some situations, you might not be able to use Pillow at all (e.g. if another
-   package has a dependency on PIL). Photologue has a clumsy answer for this:
-   write a temporary file ``/tmp/PHOTOLOGUE_NO_PILLOW``, then install Photologue.
-   This will tell Photologue to install without Pillow. It *should* work, but it
-   hasn't been tested!
-
-#. Sometimes Pillow will install... but is not actually installed. This 'undocumented feature' has been
-   reported by a user on Windows. If you can't get Photologue to display any images, check
-   that you can actually import Pillow::
-
-     $ python manage.py shell
-     Python 3.3.1 (default, Sep 25 2013, 19:29:01)
-     [GCC 4.7.3] on linux
-     Type "help", "copyright", "credits" or "license" for more information.
-     (InteractiveConsole)
-     >>> from PIL import Image
-     >>>
-
 
 Configure Your Django Settings file
 -----------------------------------
@@ -181,7 +148,36 @@ project, then study these files for inspiration! After that, setting up S3 will 
 
 .. note:: This simple setup does not handle S3 regions.
 
+.. [#pillow] That troublesome Pillow...
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pillow can be tricky to install; sometimes it will install smoothly
+out of the box, sometimes you can spend hours figuring it out - installation
+issues vary from platform to platform, and from one OS release to the next, so listing
+them all here would not be realistic. Google
+is your friend, and it's worth noting that Pillow is a fork of PIL,
+so googling 'PIL installation <your platform>' can also help.
 
+#. You should not have installed both PIL and Pillow; this can cause strange bugs.
+   Please uninstall PIL before you install Pillow.
+
+#. In some situations, you might not be able to use Pillow at all (e.g. if another
+   package has a dependency on PIL). Photologue has a clumsy answer for this:
+   write a temporary file ``/tmp/PHOTOLOGUE_NO_PILLOW``, then install Photologue.
+   This will tell Photologue to install without Pillow. It *should* work, but it
+   hasn't been tested!
+
+#. Sometimes Pillow will install... but is not actually installed. This 'undocumented feature' has been
+   reported by a user on Windows. If you can't get Photologue to display any images, check
+   that you can actually import Pillow::
+
+     $ python manage.py shell
+     Python 3.3.1 (default, Sep 25 2013, 19:29:01)
+     [GCC 4.7.3] on linux
+     Type "help", "copyright", "credits" or "license" for more information.
+     (InteractiveConsole)
+     >>> from PIL import Image
+     >>>
+     
 
 
 
