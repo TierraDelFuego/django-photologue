@@ -41,8 +41,7 @@ And 1 dependency that you will have to manage yourself:
 
 .. note::
 
-    Photologue tries to support the same Django version as are supported by the Django 
-    project itself.
+    Photologue should work with actively supported versions of DJango, see https://www.djangoproject.com/download/
 
 That troublesome Pillow...
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
